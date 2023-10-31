@@ -9,4 +9,4 @@ jobs:
       - run: |
           echo ${{ secrets.USERNAME }}
           echo $FOO
-          echo ${{ env.FOO }}
+          echo ${{ vars.FOO }}
