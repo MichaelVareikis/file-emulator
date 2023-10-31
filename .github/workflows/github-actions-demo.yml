@@ -8,5 +8,5 @@ jobs:
     steps:
       - run: |
           echo SECRET ${{ secrets.USERNAME }}
-          echo ENV ${{ env.FOO }}
+          echo ENV ${{ env }}
           echo VARS ${{ vars.FOO }}
