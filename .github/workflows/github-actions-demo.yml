@@ -8,5 +8,5 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.USERNAME }}
-          echo $PASSWORD
-          echo ${{ env.PASSWORD }}
+          echo $FOO
+          echo ${{ env.FOO }}
