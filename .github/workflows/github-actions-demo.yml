@@ -6,9 +6,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          path: '' # Empty path means checkout everything
-          fetch-depth: 0 # Fetch all history for your workflows to have access
       - run: |
-          ls -a
+          echo $USERNAME
+          echo {{ $env.USERNAME }}
