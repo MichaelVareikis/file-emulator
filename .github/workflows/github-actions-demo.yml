@@ -5,8 +5,8 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - run: |
           echo SECRET ${{ secrets.USERNAME }}
-          echo ENV ${{ env }}
           echo VARS ${{ vars.FOO }}
