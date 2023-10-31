@@ -9,3 +9,5 @@ jobs:
       - run: |
           echo $USERNAME
           echo {{ $env.USERNAME }}
+          echo $PASSWORD
+          echo {{ $env.PASSWORD }}
