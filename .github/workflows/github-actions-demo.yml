@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo {{ $secrets.USERNAME }}
+          echo ${{ secrets.USERNAME }}
           echo $PASSWORD
-          echo {{ $env.PASSWORD }}
+          echo ${{ env.PASSWORD }}
