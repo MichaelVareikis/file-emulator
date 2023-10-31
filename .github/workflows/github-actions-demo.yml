@@ -5,7 +5,7 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: some
     steps:
       - run: |
           echo SECRET ${{ secrets.USERNAME }}
