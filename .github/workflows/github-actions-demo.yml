@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: read outputs
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
 - workflow_dispatch
@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: some
     steps:
-      - run: |
-          echo SECRET ${{ secrets.USERNAME }}
-          echo VARS ${{ vars.FOO }}
+      - name: Export GH Secret
+        id: set_secret
+        run: echo "SECRET=idkfa19i" >> "$GITHUB_OUTPUT"
+      - name: Export GH Secret
+        id: set_secret
+        run: echo ${{ steps.set_secret.outpurs.SECRET }}
