@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
 - workflow_dispatch
 jobs:
-  Explore-GitHub-Actions:
+  Explore-GitHub-Actions-Task-Outputs:
     runs-on: ubuntu-latest
     environment: some
     steps:
@@ -13,3 +13,11 @@ jobs:
       - name: Export GH Secret
         id: read_secret
         run: echo ${{ steps.set_secret.outputs.SECRET }}
+  Explore-GitHub-Actions-Job-Outputs:
+    runs-on: ubuntu-latest
+    needs: Explore-GitHub-Actions-Task-Outputs
+    environment: some
+    steps:
+      - name: Export GH Secret
+        id: read_secret
+        run: echo ${{ needs.Explore-GitHub-Actions-Task-Outputs.outputs.SECRET }}
