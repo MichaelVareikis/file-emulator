@@ -16,7 +16,7 @@ jobs:
         id: set_secret
         run: |
           ls
-          current_branch=$(git rev-parse --abbrev-ref HEAD | sed -e 's/[ ._/-]/_/g')
+          current_branch=$(git rev-parse --abbrev-ref HEAD | sed -e 's/[./-]/_/g')
           if [[ $current_branch == "main" ]]; then
             branch_prefix=""
           else
