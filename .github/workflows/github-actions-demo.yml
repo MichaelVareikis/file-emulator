@@ -3,21 +3,18 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
 - workflow_dispatch
 jobs:
-  Explore-GitHub-Actions-Task-Outputs:
+  secret-generator:
     runs-on: ubuntu-latest
     environment: some
     steps:
       - name: Export GH Secret
         id: set_secret
-        run: echo "SECRET=idkfa19i" >> "$GITHUB_OUTPUT"
-      - name: Export GH Secret
-        id: read_secret
-        run: echo ${{ steps.set_secret.outputs.SECRET }}
-  Explore-GitHub-Actions-Job-Outputs:
-    runs-on: ubuntu-latest
-    needs: Explore-GitHub-Actions-Task-Outputs
-    environment: some
-    steps:
-      - name: Export GH Secret
-        id: read_secret
-        run: echo ${{ needs.Explore-GitHub-Actions-Task-Outputs.outputs.SECRET }}
+        run: |
+          current_branch=$(git rev-parse --abbrev-ref HEAD)
+          if [[ $current_branch == "main" ]]; then
+            branch_prefix=""
+          else
+            branch_prefix=_${current_branch}
+          fi
+
+          echo ${branch_prefix}_$(git rev-parse --short HEAD)
