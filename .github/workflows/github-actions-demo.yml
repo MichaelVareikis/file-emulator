@@ -11,5 +11,5 @@ jobs:
         id: set_secret
         run: echo "SECRET=idkfa19i" >> "$GITHUB_OUTPUT"
       - name: Export GH Secret
-        id: set_secret
+        id: read_secret
         run: echo ${{ steps.set_secret.outpurs.SECRET }}
