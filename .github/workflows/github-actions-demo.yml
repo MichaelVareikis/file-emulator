@@ -9,5 +9,4 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          echo "GitHub Run Number: $GITHUB_RUN_NUMBER"
-          echo "Github hash : $GITHUB_SHA"
+          echo "GitHub Run Number: ${{GITHUB_RUN_NUMBER}}"
