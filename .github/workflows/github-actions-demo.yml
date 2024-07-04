@@ -8,19 +8,4 @@ jobs:
     environment: some
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          fetch-depth: 0
-          ref: ${{ env.branch }}
-      - name: Export GH Secret
-        id: set_secret
-        run: |
-          ls
-          current_branch=$(git rev-parse --abbrev-ref HEAD | sed -e 's/[./-]/_/g')
-          if [[ $current_branch == "main" ]]; then
-            branch_prefix=""
-          else
-            branch_prefix=_${current_branch}
-          fi
-
-          echo ${branch_prefix}_$(git rev-parse --short HEAD)
+        run: echo "${{ github.job }}"
